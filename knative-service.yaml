@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: thumbnail-function
+spec:
+  template:
+    spec:
+      containers:
+        - image: iron5pi3dr11/thumbnail-function:v1
+          ports:
+            - containerPort: 8080
+  traffic:
+    - percent: 100
+      latestRevision: true
